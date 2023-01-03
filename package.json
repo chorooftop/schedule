@@ -1,5 +1,5 @@
 {
-  "name": "schedule.github.io",
+  "name": "schedule",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -23,7 +23,7 @@
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://schedule.github.io",
+  "homepage": "https://chorooftop.github.io/schedule",
   "eslintConfig": {
     "extends": [
       "react-app",
