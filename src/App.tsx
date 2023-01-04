@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { Route, Routes } from "react-router";
+import SettingPage from "./components/SettingPage";
 import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
-  // const [checkDate, setCheckDate] = useState(new Date());
   const [defaultDate, setDefaultDate] = useState(new Date("2023-01-02"));
   const [schedule, setSchedule] = useState("");
 
@@ -16,29 +17,20 @@ function App() {
 
     const isVal = Math.abs(defaultDate.getDay() + 1 - 4);
 
-    // 차이일수 % 4 (기준 일자가 이후의 날짜면 +2를 해준다.)
     const result = checkDate < defaultDate ? (diffDay + 2) % 4 : diffDay % 4;
 
     setSchedule(dataList[result]);
   };
 
-  // const onResultClick = () => {
-  //   sceduleCheck();
-  // };
-
   const onChangeDefaultDate = (e: any) => {
     const { value } = e.target;
 
     setDefaultDate(new Date(value));
-
-    // setCheckDate(new Date(value));
   };
   const onChangeDate = (e: any) => {
     const { value } = e.target;
 
     sceduleCheck(new Date(value));
-
-    // setCheckDate(new Date(value));
   };
 
   const dateFormat = (date: Date) => {
@@ -53,6 +45,9 @@ function App() {
 
   return (
     <div className="App">
+      <Routes>
+        <Route path="/*" element={<SettingPage />} />
+      </Routes>
       <div>
         주간 날짜{" "}
         <input
