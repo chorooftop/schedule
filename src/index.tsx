@@ -1,15 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import CssBaseline from "@mui/material/CssBaseline";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <CssBaseline>
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </LocalizationProvider>
+    </CssBaseline>
   </React.StrictMode>
 );
 
